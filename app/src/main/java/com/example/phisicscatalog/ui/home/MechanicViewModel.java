@@ -1,16 +1,16 @@
-package com.example.phisicscatalog.ui.gallery;
+package com.example.phisicscatalog.ui.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class MechanicViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public MechanicViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is home fragment");
     }
 
     public LiveData<String> getText() {

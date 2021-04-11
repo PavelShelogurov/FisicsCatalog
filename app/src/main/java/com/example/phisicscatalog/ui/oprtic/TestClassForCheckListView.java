@@ -1,4 +1,4 @@
-package com.example.phisicscatalog.ui.slideshow;
+package com.example.phisicscatalog.ui.oprtic;
 
 public class TestClassForCheckListView {
 

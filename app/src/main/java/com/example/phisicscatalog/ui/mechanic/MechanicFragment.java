@@ -1,4 +1,4 @@
-package com.example.phisicscatalog.ui.home;
+package com.example.phisicscatalog.ui.mechanic;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -19,8 +19,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.phisicscatalog.R;
 import com.example.phisicscatalog.dialogs.DialogFragmentForShowInfo;
-import com.example.phisicscatalog.parserXml.InfoModel;
-import com.example.phisicscatalog.parserXml.XMLParser;
+import com.example.phisicscatalog.parserXml.TheoryThemesInfoModel;
+import com.example.phisicscatalog.parserXml.ThemesXMLParser;
 
 import org.xml.sax.SAXException;
 
@@ -38,7 +38,7 @@ public class MechanicFragment extends Fragment {
 
     private ListView listView_mehanica;
 
-    private List<InfoModel> listWithInfo = new LinkedList<>();
+    private List<TheoryThemesInfoModel> listWithInfo = new LinkedList<>();
     private List<String> listTitle = new LinkedList<>();
 
 
@@ -54,7 +54,7 @@ public class MechanicFragment extends Fragment {
                 listView_mehanica = root.findViewById(R.id.list_item_mech);
 
                 //Добавляем обехкт XMLParser для того чтобы считать данные их XML для конкретного фрагмента (для даннной темы)
-                XMLParser xmlParser = new XMLParser(NAME_XML_FILE);
+                ThemesXMLParser xmlParser = new ThemesXMLParser(NAME_XML_FILE);
 
                 try {
                    listWithInfo = xmlParser.parse(getContext());

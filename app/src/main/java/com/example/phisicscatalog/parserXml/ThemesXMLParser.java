@@ -3,14 +3,11 @@ package com.example.phisicscatalog.parserXml;
 import android.content.Context;
 import android.util.Log;
 
-import com.example.phisicscatalog.R;
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
@@ -20,7 +17,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-public class XMLParser {
+public class ThemesXMLParser {
 
     private static final String DATANODE_TAG_NAME = "datanode";
     private static final String THEME_TAG_NAME = "theme";
@@ -32,9 +29,9 @@ public class XMLParser {
     private String nameOfXMLFile;
 
 
-    private List<InfoModel> listOfThemeElements = new LinkedList<>();
+    private List<TheoryThemesInfoModel> listOfThemeElements = new LinkedList<>();
 
-    public XMLParser(String nameOfXMLFile) {
+    public ThemesXMLParser(String nameOfXMLFile) {
         this.nameOfXMLFile = nameOfXMLFile;
         //this.pathToXLMFile = "android.resource://main/res/xml/data_mehanica.xml" ;
 
@@ -45,7 +42,7 @@ public class XMLParser {
 
     }
 
-    public List<InfoModel> parse(Context context) throws ParserConfigurationException, IOException, SAXException {
+    public List<TheoryThemesInfoModel> parse(Context context) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
 
@@ -57,7 +54,7 @@ public class XMLParser {
         return findIntoInXMLFile(nodeListOnlyDataNodeElement);
     }
 
-    private List<InfoModel> findIntoInXMLFile(NodeList nodeList) {
+    private List<TheoryThemesInfoModel> findIntoInXMLFile(NodeList nodeList) {
         for (int i = 0; i < nodeList.getLength(); i++) {
             String theme = "null";
             String formula = "null";
@@ -76,7 +73,7 @@ public class XMLParser {
                         break;
                 }
             }
-            listOfThemeElements.add(new InfoModel(theme, formula, description));
+            listOfThemeElements.add(new TheoryThemesInfoModel(theme, formula, description));
         }
         return listOfThemeElements;
 

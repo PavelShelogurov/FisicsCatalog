@@ -1,11 +1,11 @@
 package com.example.phisicscatalog.parserXml;
 
-public class InfoModel {
+public class TheoryThemesInfoModel {
     private String theme;
     private String formula;
     private String description;
 
-    public InfoModel(String theme, String formula, String description) {
+    public TheoryThemesInfoModel(String theme, String formula, String description) {
         this.theme = theme;
         this.formula = formula;
         this.description = description;

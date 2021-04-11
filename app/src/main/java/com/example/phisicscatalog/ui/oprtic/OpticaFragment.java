@@ -1,4 +1,4 @@
-package com.example.phisicscatalog.ui.slideshow;
+package com.example.phisicscatalog.ui.oprtic;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -19,14 +19,13 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.phisicscatalog.R;
-import com.example.phisicscatalog.ui.gallery.ElectroFragment;
-import com.example.phisicscatalog.ui.home.MechanicFragment;
+import com.example.phisicscatalog.ui.mechanic.MechanicFragment;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
 
 public class OpticaFragment extends Fragment {
 
-    private SlideshowViewModel slideshowViewModel;
+    private OpticaViewModel opticaViewModel;
     private TestingFragment testingFragment;
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -42,12 +41,12 @@ public class OpticaFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        opticaViewModel =
+                new ViewModelProvider(this).get(OpticaViewModel.class);
         View root = inflater.inflate(R.layout.fragment_slideshow, container, false);
 
 
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        opticaViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 /**
@@ -69,11 +68,11 @@ public class OpticaFragment extends Fragment {
                 viewPager.setAdapter(new MyFragmentPagerAdapter(getFragmentManager(), 0));
 
 
-             //   tabLayout.setContentDescription(root.getContentDescription());
-//                TabLayout.Tab tab1 = tabLayout.getTabAt(0);
-//                tab1.setContentDescription(root.getContentDescription());
-//                TabLayout.Tab tab2 = tabLayout.getTabAt(1);
-//                tab2.setContentDescription(root.getContentDescription());
+                tabLayout.setContentDescription(root.getContentDescription());
+                TabLayout.Tab tab1 = tabLayout.getTabAt(0);
+                tab1.setContentDescription(root.getContentDescription());
+                TabLayout.Tab tab2 = tabLayout.getTabAt(1);
+                tab2.setContentDescription(root.getContentDescription());
                 //для отображения уведомлений у вкладки
                 BadgeDrawable badgeDrawable = tabLayout.getTabAt(1).getOrCreateBadge();
                 badgeDrawable.setVisible(true);

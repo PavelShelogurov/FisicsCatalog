@@ -1,4 +1,4 @@
-package com.example.phisicscatalog.ui.gallery;
+package com.example.phisicscatalog.ui.electro;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

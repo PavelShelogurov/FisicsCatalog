@@ -1,4 +1,4 @@
-package com.example.phisicscatalog.ui.gallery;
+package com.example.phisicscatalog.ui.electro;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

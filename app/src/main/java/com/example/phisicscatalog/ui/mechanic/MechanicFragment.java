@@ -1,4 +1,4 @@
-package com.example.phisicscatalog.ui.home;
+package com.example.phisicscatalog.ui.mechanic;
 
 import android.app.AlertDialog;
 import android.os.Bundle;
@@ -19,8 +19,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.phisicscatalog.R;
 import com.example.phisicscatalog.dialogs.DialogFragmentForShowInfo;
-import com.example.phisicscatalog.parserXml.InfoModel;
-import com.example.phisicscatalog.parserXml.XMLParser;
+import com.example.phisicscatalog.parserXml.TheoryThemesInfoModel;
+import com.example.phisicscatalog.parserXml.ThemesXMLParser;
 
 import org.xml.sax.SAXException;
 
@@ -30,31 +30,31 @@ import java.util.List;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-public class HomeFragment extends Fragment {
+public class MechanicFragment extends Fragment {
 
     private static final String NAME_XML_FILE = "data_mehanica.xml";
 
-    private HomeViewModel homeViewModel;
+    private MechanicViewModel mechanicViewModel;
 
     private ListView listView_mehanica;
 
-    private List<InfoModel> listWithInfo = new LinkedList<>();
+    private List<TheoryThemesInfoModel> listWithInfo = new LinkedList<>();
     private List<String> listTitle = new LinkedList<>();
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        mechanicViewModel =
+                new ViewModelProvider(this).get(MechanicViewModel.class);
         View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        homeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        mechanicViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 listView_mehanica = root.findViewById(R.id.list_item_mech);
 
                 //Добавляем обехкт XMLParser для того чтобы считать данные их XML для конкретного фрагмента (для даннной темы)
-                XMLParser xmlParser = new XMLParser(NAME_XML_FILE);
+                ThemesXMLParser xmlParser = new ThemesXMLParser(NAME_XML_FILE);
 
                 try {
                    listWithInfo = xmlParser.parse(getContext());
